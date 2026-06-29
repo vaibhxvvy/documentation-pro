@@ -1,0 +1,61 @@
+%% book.tex — Root document template for documentation-pro projects
+%% Copy to your project root, edit metadata, add \include{} entries
+%% Compile with: latexmk -xelatex book.tex
+
+\documentclass[
+  11pt,
+  twoside,
+  openright,
+  a4paper,
+]{book}
+
+\usepackage{preamble}
+
+%% ============================================================
+%% DOCUMENT METADATA — Edit these fields
+%% ============================================================
+\newcommand{\BookTitle}{Your Book Title}
+\newcommand{\BookSubtitle}{A Comprehensive Guide}
+\newcommand{\BookAuthor}{Author Name}
+\newcommand{\BookYear}{2024}
+\newcommand{\BookVersion}{1.0.0}
+
+\title{\BookTitle: \BookSubtitle}
+\author{\BookAuthor}
+\date{\BookYear}
+
+\hypersetup{
+  pdftitle={\BookTitle},
+  pdfauthor={\BookAuthor},
+  pdfsubject={\BookSubtitle},
+  pdfkeywords={technical documentation, engineering},
+  pdfcreator={XeLaTeX + documentation-pro},
+}
+
+\begin{document}
+
+%% FRONT MATTER
+\frontmatter
+\pagestyle{empty}
+\include{frontmatter/titlepage}
+\include{frontmatter/copyright}
+\pagestyle{fancy}
+\tableofcontents
+\listoffigures
+\listoftables
+\lstlistoflistings
+\include{frontmatter/preface}
+
+%% MAIN TEXT
+\mainmatter
+\include{chapters/ch01-introduction}
+%% \include{chapters/ch02-topic}
+
+%% BACK MATTER
+\backmatter
+%% \include{appendices/appA-reference}
+\printglossaries
+\printbibliography[heading=bibintoc, title={Bibliography}]
+\printindex
+
+\end{document}

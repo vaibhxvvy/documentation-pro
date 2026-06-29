@@ -1,0 +1,144 @@
+%% chapter.tex — Chapter template for documentation-pro projects
+%% Copy to chapters/chNN-title.tex and fill in content
+
+\chapter{Chapter Title}
+\label{ch:chapter-label}
+
+%% SECTION 1: OVERVIEW (150–300 words)
+\section{Overview}
+\label{sec:chapter-label-overview}
+
+\chapterlead{%
+  [One to three motivating sentences. What does this chapter cover?
+  Why does it matter? What will the reader be able to do?]
+}
+
+By the end of this chapter, you will be able to:
+\begin{itemize}
+  \item [Skill 1]
+  \item [Skill 2]
+  \item [Skill 3]
+\end{itemize}
+
+%% SECTION 2: MOTIVATION (200–400 words)
+\section{Motivation}
+\label{sec:chapter-label-motivation}
+
+[Present the problem with a concrete scenario. Do not start with the solution.]
+
+%% SECTION 4: CORE CONCEPTS (500–1500 words)
+\section{Core concepts}
+\label{sec:chapter-label-concepts}
+
+[Define every major concept. Follow each abstraction with a concrete example.]
+
+\subsection{First concept}
+\label{subsec:chapter-label-concept1}
+
+[Definition, motivation, concrete example, diagram if applicable.]
+
+\begin{figure}[H]
+  \centering
+  \input{figures/chNN/concept-diagram}
+  \caption{[What is shown and why it matters.]}
+  \label{fig:chapter-label-concept1}
+\end{figure}
+
+%% SECTION 5: ARCHITECTURE
+\section{Architecture}
+\label{sec:chapter-label-architecture}
+
+[Structural overview with at least one architecture diagram.]
+
+%% SECTION 6: IMPLEMENTATION (500–2000 words)
+\section{Implementation}
+\label{sec:chapter-label-implementation}
+
+[Prose explanation before the listing.]
+
+\begin{lstlisting}[
+  style=python,
+  caption={[Description of what this code does.]},
+  label={lst:chapter-label-basic},
+]
+def example():
+    """Docstring."""
+    return "result"
+\end{lstlisting}
+
+[Prose after listing: \autoref{lst:chapter-label-basic} demonstrates...]
+
+%% SECTION 7: EXAMPLES (2–5 worked examples)
+\section{Examples}
+\label{sec:chapter-label-examples}
+
+\subsubsection{Example: [Scenario title]}
+
+\textbf{Problem}: [One-paragraph problem statement.]
+
+\begin{lstlisting}[
+  style=python,
+  caption={Example: [scenario title].},
+  label={lst:chapter-label-ex1},
+]
+# Solution code
+\end{lstlisting}
+
+\textbf{Result}: [What the reader should observe.]
+
+%% SECTION 8: COMMON MISTAKES (3–7 items)
+\section{Common mistakes}
+\label{sec:chapter-label-mistakes}
+
+\subsubsection{Mistake 1: [Short name]}
+\textbf{What happens}: [The incorrect usage.]
+\textbf{Why it is wrong}: [Root cause.]
+\textbf{The correct approach}: [What to do instead.]
+
+%% SECTION 9: BEST PRACTICES (3–7 items)
+\section{Best practices}
+\label{sec:chapter-label-practices}
+
+\subsubsection{Practice 1: [Short name]}
+[What to do, why it matters, how to apply it.]
+
+%% SECTION 13: EXERCISES (3–10)
+\section{Exercises}
+\label{sec:chapter-label-exercises}
+
+\textbf{Exercise 1} (\(\bullet\) Conceptual)
+
+[Conceptual question testing definitions and principles.]
+
+\textbf{Exercise 2} (\(\bullet\bullet\) Applied)
+
+[Task requiring writing or modifying code.]
+
+\textbf{Exercise 3} (\(\bullet\bullet\bullet\) Advanced)
+
+[Open-ended or research-level challenge.]
+
+%% SECTION 14: SUMMARY (150–300 words)
+\section{Summary}
+\label{sec:chapter-label-summary}
+
+[Synthesize the chapter. Name the 3–5 most important concepts. No new information.]
+
+%% SECTION 15: FURTHER READING
+\section{Further reading}
+\label{sec:chapter-label-further}
+
+\textbf{Foundational papers}
+\begin{itemize}
+  \item \fullcite{Author2024} — [One sentence: why to read this.]
+\end{itemize}
+
+\textbf{Official documentation}
+\begin{itemize}
+  \item [Official source name.] \url{https://example.com} — [One sentence annotation.]
+\end{itemize}
+
+\textbf{Books}
+\begin{itemize}
+  \item \fullcite{Kleppmann2017} — [One sentence annotation.]
+\end{itemize}
