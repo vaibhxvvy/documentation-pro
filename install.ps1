@@ -47,11 +47,18 @@ Write-Step "Extracting..."
 $extractPath = Join-Path $tmp "extracted"
 Expand-Archive -Path $zipPath -DestinationPath $extractPath -Force
 
-# Find extracted folder (GitHub adds branch suffix)
-$extracted = Get-ChildItem -Path $extractPath -Directory | Select-Object -First 1
-if (-not $extracted) { Write-Fail "Extraction failed — archive may be corrupt" }
+# GitHub extracts as: <repo>-<branch>/ containing the repo root
+# The skill package is in the inner documentation-pro/ subfolder
+$repoRoot = Get-ChildItem -Path $extractPath -Directory | Select-Object -First 1
+if (-not $repoRoot) { Write-Fail "Extraction failed — archive may be corrupt" }
 
-# Verify
+# The actual skill folder is repoRoot/documentation-pro/
+$extracted = Get-Item (Join-Path $repoRoot.FullName "documentation-pro")
+if (-not (Test-Path $extracted.FullName)) {
+    Write-Fail "Skill folder not found inside archive"
+}
+
+# Verify SKILL.md
 if (-not (Test-Path (Join-Path $extracted.FullName "SKILL.md"))) {
     Write-Fail "SKILL.md not found — package may be corrupt"
 }

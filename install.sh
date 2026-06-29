@@ -94,8 +94,12 @@ info "Fetching archive from GitHub..."
 $FETCH "$ARCHIVE" | tar -xz -C "$TMP" --strip-components=1
 success "Downloaded"
 
-# Verify SKILL.md exists
-[ -f "$TMP/SKILL.md" ] || error "SKILL.md not found in archive — download may be corrupted"
+# tar --strip-components=1 already strips the <repo>-<branch>/ wrapper.
+# TMP is now the repo root. The skill package lives in documentation-pro/ subfolder.
+SKILL_SRC="$TMP/documentation-pro"
+
+[ -d "$SKILL_SRC" ] || error "Skill folder not found in archive"
+[ -f "$SKILL_SRC/SKILL.md" ] || error "SKILL.md not found in archive — download may be corrupted"
 success "Package verified"
 
 # ── install ───────────────────────────────────────────────────────────────────
